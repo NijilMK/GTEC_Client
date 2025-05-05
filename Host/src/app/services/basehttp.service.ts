@@ -18,7 +18,7 @@ import { ServiceLocator } from './helpers/ServiceLocator.service';
     headers!: HttpHeaders;
     //  server = "";
     server = "https://localhost:7052/";
-    auth = "65fhsgdjhfgas%^$*&RHVSDFKU8ah9l";
+    auth = "659476889604ib26is5ods8ah9l";
     postHeader = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.auth,

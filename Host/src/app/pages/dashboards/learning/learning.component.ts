@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { NgbdLearningSortableHeader, courseSortEvent } from './learning-sortable.directive';
 import { LearningService } from './learning.service';
 import { DecimalPipe } from '@angular/common';
+import { AdmissionService } from 'src/app/services/admission.service';
 
 @Component({
   selector: 'app-learning',
@@ -21,6 +22,9 @@ export class LearningComponent {
   totalcoursesChart: any;
   strokedradialbarChart: any;
   areasplineChart: any;
+  TotalAdmissionCount!:number;
+  admissionService!: AdmissionService
+
 
   instructordata!: InstructorModel[];
   coursedata!: CourseModel[];
@@ -33,8 +37,9 @@ export class LearningComponent {
 
   @ViewChildren(NgbdLearningSortableHeader) headers!: QueryList<NgbdLearningSortableHeader>;
 
-  constructor(public service: LearningService) {
+  constructor(public service: LearningService,public adm: AdmissionService) {
     this.courseList = service.countries$;
+    this.admissionService = adm;
     this.total = service.total$;
   }
 
@@ -53,6 +58,17 @@ export class LearningComponent {
 
       document.getElementById('elmLoader')?.classList.add('d-none')
     }, 1200)
+
+    this.admissionService.getAll("Admissions").subscribe(
+      (members) => {
+
+        this.TotalAdmissionCount = members.length;
+        //this.employees = members;
+
+        alert(members.length);
+      });
+
+
   }
 
   // Chart Colors Set
@@ -218,7 +234,7 @@ export class LearningComponent {
       chart: {
         height: 320,
         type: 'radialBar',
-        // offsetY: -2  
+        // offsetY: -2
       },
       plotOptions: {
         radialBar: {
