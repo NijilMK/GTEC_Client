@@ -63,12 +63,7 @@ export class LearningComponent {
       (members) => {
 
         this.TotalAdmissionCount = members.length;
-        //this.employees = members;
-
-        alert(members.length);
       });
-
-
   }
 
   // Chart Colors Set
