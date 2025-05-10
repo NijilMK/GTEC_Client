@@ -58,6 +58,12 @@
         "EARNINGS": "Earnings"
       }
     },
+    "MASTER": {
+      "TEXT": "Masters",
+      "LIST": {
+        "FEESTYPE": "Fees Types"
+      }
+    },
     "PAGES": {
       "TEXT": "Pages"
     },

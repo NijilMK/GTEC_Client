@@ -709,7 +709,7 @@ export const MENU: MenuItem[] = [
                 link: '/advance-ui/sweetalert',
                 parentId: 112
             },
-          
+
             {
                 id: 115,
                 label: 'MENUITEMS.ADVANCEUI.LIST.SCROLLBAR',
