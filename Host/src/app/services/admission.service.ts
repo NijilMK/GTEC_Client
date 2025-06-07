@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BasehttpService } from './basehttp.service';
 import { Observable } from 'rxjs';
 import { Admission } from '../models/student/admissionModel';
+import { BaseHttpService } from './api-services/base-http.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdmissionService extends BasehttpService{
+export class AdmissionService extends BaseHttpService{
 
   constructor(private _http: HttpClient)
   {

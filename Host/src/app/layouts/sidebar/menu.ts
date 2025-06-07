@@ -156,6 +156,12 @@ export const MENU: MenuItem[] = [
         icon: 'ph-graduation-cap',
         parentId: 8,
         subItems: [
+           {
+                        id: 26,
+                        label: 'MENUITEMS.APPS.LIST.COURSES',
+                        link: '/learning/CourseList',
+                        parentId: 9
+            },
             {
                 id: 25,
                 label: 'MENUITEMS.APPS.LIST.COURSES',

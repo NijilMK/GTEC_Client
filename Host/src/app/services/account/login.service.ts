@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BasehttpService } from '../basehttp.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/core/models/auth.models';
 import { Observable } from 'rxjs';
+import { BaseHttpService } from '../api-services/base-http.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService extends BasehttpService
+export class LoginService extends BaseHttpService
 {
 
   constructor(private _http: HttpClient)
