@@ -163,6 +163,12 @@ export const MENU: MenuItem[] = [
                         parentId: 9
             },
             {
+                        id: 27,
+                        label: 'MENUITEMS.APPS.LIST.DEPARTMENT',
+                        link: '/learning/Department',
+                        parentId: 9
+            },
+            {
                 id: 25,
                 label: 'MENUITEMS.APPS.LIST.COURSES',
                 parentId: 24,

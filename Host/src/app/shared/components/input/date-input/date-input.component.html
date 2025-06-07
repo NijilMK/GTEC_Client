@@ -1,0 +1,33 @@
+<div>
+  <app-FomLabel
+    Text="{{ formLabel | translate }}"
+    [Mandatory]="Mandatory"
+  ></app-FomLabel>
+
+  <!-- [dateFormat]="'d-m-Y'" -->
+  <input
+    [ngClass]="{ 'is-invalid': (submitted && getControl()?.hasError('required'))}"
+    type="text"
+    [value]="value"
+    [disabled]="disabled"
+    class="form-control form-control-sm"
+    #myTitle
+    mwlFlatpickr
+    [altInput]="true"
+    [enableTime]="enableTime"
+    [convertModelValue]="true"
+    (keyup)="keyup(myTitle.value)"
+    (flatpickrChange)="keyup(myTitle.value)"
+    
+  />
+<!--
+  altFormat="d.m.y H:i"
+    [dateFormat]="'d.m.y H:i'" -->
+
+  <span
+    class="text-danger"
+    *ngIf="(submitted || getControl()?.touched) &&getControl()?.valid === false &&getControl()?.hasError('required')">
+    {{ formLabel | translate }}
+    {{ "MENUITEMS.MESSAGES.LIST.ISREQUIRED" | translate }}
+  </span>
+</div>

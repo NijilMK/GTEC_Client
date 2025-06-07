@@ -1,0 +1,31 @@
+<div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered" id="myModal">
+  <div class="modal-content size-lg">
+    <app-AddEditHeader title="{{title}}" (onCancelClick)="CancelClick()" [isEditMode]="isEdit" [isViewMode]="isView"></app-AddEditHeader>
+    <form (ngSubmit)="OnSubmit()" [formGroup]="form" class="tablelist-form" novalidate autocomplete="off">
+      <div class="modal-body p-4">
+        <div class="form-group mb-3">
+          <app-RequiredFormInput formLabel="MENUITEMS.COLUMNS.LIST.COUNTRYNAME" [f]="form" [submitted]="submitted"
+            formControlName="name" formControlPath="name" [isViewMode]="isView"></app-RequiredFormInput>
+        </div>
+        <div class="form-group mb-3">
+          <app-RequiredFormInput formLabel="MENUITEMS.COLUMNS.LIST.LANGUAGE" [f]="form" [submitted]="submitted"
+            formControlName="language" formControlPath="language" [isViewMode]="isView"></app-RequiredFormInput>
+        </div>
+        <div class="form-group mb-3">
+          <app-RequiredFormInput formLabel="MENUITEMS.COLUMNS.LIST.COUNTRY_CODE" [f]="form" [submitted]="submitted"
+            formControlName="countryCode" formControlPath="countryCode" [isViewMode]="isView"></app-RequiredFormInput>
+        </div>
+        <div class="row mb-3">
+          <div class="form-group mb-2 col-md-6 ">
+
+
+          </div>
+          <div class="form-group mb-2 col-md-6">
+
+          </div>
+        </div>
+      </div>
+      <app-AddEditDialogFooter (onCancelClick)="CancelClick()" data="{{ data }}" [isViewMode]="isView"></app-AddEditDialogFooter>
+    </form>
+  </div>
+</div>

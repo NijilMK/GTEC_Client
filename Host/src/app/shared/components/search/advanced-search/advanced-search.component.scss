@@ -1,0 +1,71 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown button {
+  background-color: #007bff; /* Button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown button:hover {
+  background-color: #0056b3; /* Hover color */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(-100% - 10px); /* Adjust this value to position the dropdown correctly */
+  background-color: white;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10000; /* High z-index to ensure it appears above other elements */
+  padding: 20px;
+  border-radius: 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content input,
+.dropdown-content select,
+.dropdown-content button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.dropdown-content button {
+  background-color: #28a745; /* Button color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+  background-color: #218838; /* Hover color */
+}
+
+.dropdown-content .close-btn {
+  background-color: #dc3545; /* Close button color */
+}
+
+.dropdown-content .close-btn:hover {
+  background-color: #c82333; /* Hover color */
+}

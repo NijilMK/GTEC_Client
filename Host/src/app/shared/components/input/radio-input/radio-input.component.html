@@ -1,0 +1,67 @@
+<div>
+  <app-FomLabel Text="{{ formLabel | translate }}" [Mandatory]="Mandatory"></app-FomLabel>
+
+
+  <!-- <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+    </div> -->
+
+  <div>
+
+    <input
+    type="checkbox"
+    role="switch"
+    [checked]="value"
+    #myTitle
+    checked
+    (keyup)="keyup(myTitle.value)"
+    [disabled]="disabled"
+    class="form-check form-switch"
+    (change)="handleSelected(myTitle.checked)">
+
+    <label class="form-check-label" for="flexSwitchCheckChecked">{{ formLabel | translate }}</label>
+  </div>
+
+  <span
+    class="text-danger"
+    *ngIf="
+      (submitted || getControl()?.touched) &&
+      getControl()?.valid === false &&
+      getControl()?.hasError('required')
+    "
+  >
+    {{ formLabel | translate }}
+    {{ "MENUITEMS.MESSAGES.LIST.ISREQUIRED" | translate }}
+  </span>
+</div>
+
+
+
+<!-- <div>
+
+  <div class="form-check form-switch">
+
+    <input
+    type="text"
+    [value]="value"
+    #myTitle
+    (keyup)="keyup(myTitle.value)"
+    [disabled]="disabled"
+    class="form-control form-control-sm">
+
+    <label class="form-check-label" for="flexSwitchCheckChecked">{{ formLabel | translate }}</label>
+    </div>
+
+  <span
+    class="text-danger"
+    *ngIf="
+      (submitted || getControl()?.touched) &&
+      getControl()?.valid === false &&
+      getControl()?.hasError('required')
+    "
+  >
+    {{ formLabel | translate }}
+    {{ "MENUITEMS.MESSAGES.LIST.ISREQUIRED" | translate }}
+  </span>
+</div> -->

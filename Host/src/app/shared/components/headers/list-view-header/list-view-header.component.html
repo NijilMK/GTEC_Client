@@ -1,0 +1,13 @@
+<div class="card-header d-flex align-items-center">
+  <div class="flex-grow-1">
+    <h5 class="card-title mb-0">
+      {{ Header | translate }}
+      <span class="badge bg-dark-subtle text-dark ms-1"></span>
+    </h5>
+  </div>
+  <div class="flex-shrink-0" *ngIf="showAddNewButton">
+    <div class="d-flex flex-wrap align-items-start gap-2">
+      <app-addNewButton (onClick)="OnAddNewButtonClick()" [caption]="buttonText"></app-addNewButton>
+    </div>
+  </div>
+</div>

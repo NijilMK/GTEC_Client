@@ -1,0 +1,15 @@
+<div>
+  <app-FomLabel
+    Text={{label}}
+    [Mandatory]="Mandatory"
+  ></app-FomLabel>
+  <div>
+    <div [innerHtml]="msg" *ngIf="msg" style="color: red"></div>
+    <div>
+      <img [src]="imageURL" *ngIf="imageURL" style="height: 100px" />
+    </div>
+    <p *ngIf="!isViewMode">
+      <input type="file" (change)="selectFile($event)" />
+    </p>
+  </div>
+</div>

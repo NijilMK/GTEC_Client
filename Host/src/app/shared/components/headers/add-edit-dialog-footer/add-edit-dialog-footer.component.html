@@ -1,0 +1,12 @@
+<div class="modal-footer">
+  <div class="hstack gap-2 justify-content-end">
+    <button *ngIf="isViewMode" type="button" class="btn btn-ghost-danger" (click)="OnCancelButtonClick()">
+      <i class="bi bi-x-lg align-baseline me-1"></i>
+      {{ "MENUITEMS.PAGES.LIST.CLOSE" | translate }}
+    </button>
+    <button *ngIf="!isViewMode" type="submit" class="btn btn-primary" id="add-btn" [disabled]="submitted">
+      <span *ngIf="!submitted">{{ (data.id ? "MENUITEMS.PAGES.LIST.UPDATE" : "MENUITEMS.PAGES.LIST.SAVE") | translate }}</span>
+      <div *ngIf="submitted" style="width: 17px; height: 17px;" class="spinner-border text-light" role="status"></div>
+    </button>
+  </div>
+</div>

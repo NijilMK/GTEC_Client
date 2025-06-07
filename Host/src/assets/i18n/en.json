@@ -34,6 +34,7 @@
         "FILEMANAGER": "File Manager",
         "LEARNING": "Learning",
         "COURSES": "Courses",
+        "DEPARTMENT": "Department",
         "LISTVIEW": "List View",
         "GRIDVIEW": "Grid View",
         "CATEGORY": "Category",
@@ -59,7 +60,10 @@
       }
     },
     "PAGES": {
-      "TEXT": "Pages"
+      "TEXT": "Pages",
+      "LIST": {
+        "SAVE": "Save"
+      }
     },
     "AUTHENTICATION": {
       "TEXT": "Authentication",

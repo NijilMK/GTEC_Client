@@ -1,0 +1,29 @@
+<div class="dropdown">
+  <button (click)="toggleDropdown()">Advanced Search</button>
+  <div class="dropdown-content" [ngClass]="{'show': dropdownOpen}">
+    <ng-container *ngFor="let field of fields">
+      <div [ngSwitch]="field.type">
+        <!-- Text Input -->
+        <input *ngSwitchCase="'text'" type="text" [(ngModel)]="field.value" placeholder="Enter {{field.label}}" />
+
+        <!-- Number Range -->
+        <div *ngSwitchCase="'number'">
+          <input type="number" [(ngModel)]="field.min" placeholder="Min {{field.label}}" />
+          <input type="number" [(ngModel)]="field.max" placeholder="Max {{field.label}}" />
+        </div>
+
+        <!-- Date Range -->
+        <div *ngSwitchCase="'date'">
+          <input type="date" [(ngModel)]="field.startDate" placeholder="Start {{field.label}}" />
+          <input type="date" [(ngModel)]="field.endDate" placeholder="End {{field.label}}" />
+        </div>
+
+        <!-- List Items -->
+        <select *ngSwitchCase="'list'" [(ngModel)]="field.selectedItem">
+          <option *ngFor="let item of field.options" [value]="item">{{item}}</option>
+        </select>
+      </div>
+    </ng-container>
+    <button (click)="onSearch()">Search</button>
+  </div>
+</div>

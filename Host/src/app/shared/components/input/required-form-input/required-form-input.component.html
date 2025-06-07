@@ -1,0 +1,28 @@
+<div>
+  <app-FomLabel Text="{{ formLabel | translate }}" [Mandatory]="Mandatory"></app-FomLabel>
+  <input type="text" [value]="value" #myTitle (keyup)="keyup(myTitle.value)" [disabled]="disabled"
+    class="form-control form-control-sm" [ngClass]="{ 'is-invalid': submitted && getControl()?.errors,'border-0':isViewMode }"
+    [readonly]="isViewMode" (keypress)="keyPress($event)" />
+    
+  <span class="text-danger small" *ngIf="
+      (submitted || getControl()?.touched) &&
+      getControl()?.valid === false &&
+      getControl()?.hasError('required')
+    ">
+    {{ formLabel | translate }}
+    {{ "MENUITEMS.MESSAGES.LIST.ISREQUIRED" | translate }}
+  </span>
+  <span class="text-danger small" *ngIf="
+      (submitted || getControl()?.touched) &&
+      getControl()?.valid === false &&
+      (getControl()?.hasError('email') || getControl()?.hasError('pattern'))
+    ">
+    {{ formLabel | translate }}
+    {{ "MENUITEMS.MESSAGES.LIST.ISINVALID" | translate }} 
+  </span>
+  <span
+  class="text-danger small"
+  *ngIf="(submitted || getControl()?.touched) && getControl()?.hasError('maxlength')">
+  {{ formLabel | translate }} {{ "MENUITEMS.MESSAGES.LIST.MAXLENGTH" | translate }}  : {{ getControl()?.errors?.['maxlength']?.['requiredLength'] }}
+</span>
+</div>

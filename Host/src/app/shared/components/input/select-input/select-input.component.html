@@ -1,0 +1,19 @@
+<div>
+  <app-FomLabel Text="{{ formLabel | translate}}" [Mandatory]="Mandatory"></app-FomLabel>
+  <select #mySelect [value]="value" (change)="OnValueChanged($event)" class="form-control form-select form-select-sm"
+    [ngClass]="{ 'is-invalid': submitted && getControl()?.errors,'border-0':isViewMode }">
+    <option [ngValue]="null" hidden>Select...</option>
+    <option *ngFor="let item of models" value="{{item.id}}" [disabled]="disabled">
+      {{item.name}}
+    </option>
+  </select>
+
+  <span class="text-danger small" *ngIf="
+      (submitted || getControl()?.touched) &&
+      getControl()?.valid === false &&
+      getControl()?.hasError('required')
+    ">
+    {{ formLabel | translate }}
+    {{ "MENUITEMS.MESSAGES.LIST.ISREQUIRED" | translate }}
+  </span>
+</div>
