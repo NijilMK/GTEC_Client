@@ -17,7 +17,7 @@ import { ServiceLocator } from './helpers/ServiceLocator.service';
     _urlConstant: UrlconstantService;
     headers!: HttpHeaders;
     //  server = "";
-    server = "https://localhost:7052/";
+    server = "https://localhost:62749/";
     auth = "659476889604ib26is5ods8ah9l";
     postHeader = new HttpHeaders({
       'Content-Type': 'application/json',
