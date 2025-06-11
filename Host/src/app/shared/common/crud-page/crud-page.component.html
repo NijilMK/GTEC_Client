@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-between mb-3">
+  <input class="form-control w-50"  [(ngModel)]="searchTerm" placeholder="Search..." />
+  <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#createForm">New {{ modelName }}</button>
+</div>
+
+<div class="collapse mb-3" id="createForm">
+  <form class="row g-2">
+    <div *ngFor="let col of columns" class="col-md-6">
+      <label>{{ col | titlecase }}</label>
+      <input class="form-control" [(ngModel)]="newItem[col]" name="create_{{ col }}">
+    </div>
+    <div class="col-12">
+      <button type="button" class="btn btn-success" (click)="create()">Save</button>
+    </div>
+  </form>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col | titlecase }}</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of paginatedData">
+      <ng-container *ngIf="editItem?.id === item.id; else viewMode">
+        <td *ngFor="let col of columns">
+          <input class="form-control" [(ngModel)]="editItem[col]" name="edit_{{ col }}">
+        </td>
+        <td>
+          <button class="btn btn-sm btn-success" (click)="saveEdit()">Save</button>
+          <button class="btn btn-sm btn-secondary" (click)="editItem = null">Cancel</button>
+        </td>
+      </ng-container>
+      <ng-template #viewMode>
+        <td *ngFor="let col of columns">{{ item[col] }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="startEdit(item)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(item.id)">Delete</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between">
+  <button class="btn btn-outline-secondary" (click)="changePage(-1)" [disabled]="currentPage === 1">Previous</button>
+  <div>Page {{ currentPage }} of {{ Math.ceil(filteredData.length / pageSize) }}</div>
+  <button class="btn btn-outline-secondary" (click)="changePage(1)" [disabled]="currentPage >= filteredData.length / pageSize">Next</button>
+</div>

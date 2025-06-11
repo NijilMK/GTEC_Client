@@ -1,39 +1,31 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { DepartmentModel } from 'src/app/models/departmentModel';
+import { GenericApiService } from 'src/app/services/api-services/genericApi.service';
 import { ListBaseComponent } from 'src/app/shared/base/list-base/list-base.component';
 
 @Component({
   selector: 'app-country',
-  templateUrl: './department.component.html',
-  styleUrls: ['./department.component.css']
+   template: `
+    <app-crud-page
+      [columns]="['name']"
+      [modelName]="'Department'"
+      [apiService]="departmentService">
+    </app-crud-page>
+  `
 })
 export class DepartmentComponent extends ListBaseComponent<DepartmentModel> implements OnInit {
 
-  constructor(private renderer2: Renderer2)
+   departmentService: GenericApiService<DepartmentModel>;
+
+  constructor(private renderer2: Renderer2, http: HttpClient)
   {
     super(renderer2);
-    this.setURL(String(this._urlConstant.URLList.get('Country')));
+     this.departmentService = new GenericApiService<DepartmentModel>(http);
   }
-
-  override getColumns() {
-    return [
-      {
-        title: 'Id',
-        data: 'id',
-      },
-      {
-        title: 'Country Name',
-        data: 'name',
-      },
-      {
-        title: 'Language',
-        data: 'language',
-      },
-      {
-        title: 'Currency',
-        data: 'currency.currencyName',
-      },
-
-    ];
-  }
+  //this.setURL(String(this._urlConstant.URLList.get('Department')));
 }
+
+
+
+

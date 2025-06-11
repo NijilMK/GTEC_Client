@@ -21,15 +21,18 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FlatpickrModule } from 'angularx-flatpickr';
+import { CrudPageComponent } from './common/crud-page/crud-page.component';
 
 @NgModule({
   declarations: [
     BreadcrumbsComponent,AddNewButtonComponent, EditDeleteButtonComponent, AddEditDialogFooterComponent,
     FomLabelComponent, ListViewHeaderComponent, RequiredFormInputComponent,
     SelectInputComponent, AddEditHeaderComponent, AddEditDialogbaseComponent,FileSelectorComponent,
-    DateInputComponent, RadioInputComponent, AdvancedSearchComponent
+    DateInputComponent, RadioInputComponent, AdvancedSearchComponent,CrudPageComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     TranslateModule,
     NgSelectModule,
@@ -37,11 +40,10 @@ import { FlatpickrModule } from 'angularx-flatpickr';
     TranslateModule,
     ModalModule,
     FlatpickrModule,
-    FormsModule
   ],
   exports: [BreadcrumbsComponent,AddNewButtonComponent, EditDeleteButtonComponent, AddEditDialogFooterComponent,
     FomLabelComponent, ListViewHeaderComponent, RequiredFormInputComponent,
     SelectInputComponent, AddEditHeaderComponent, AddEditDialogbaseComponent,FileSelectorComponent,
-    DateInputComponent, RadioInputComponent, AdvancedSearchComponent]
+    DateInputComponent, RadioInputComponent, AdvancedSearchComponent, CrudPageComponent]
 })
 export class SharedModule { }

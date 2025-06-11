@@ -43,7 +43,7 @@ export function createTranslateLoader(http: HttpClient): any {
     LayoutsModule,
     ToastrModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
